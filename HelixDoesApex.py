@@ -56,7 +56,7 @@ totalKills = psnDict['data']['segments'][0]['stats']['kills']['displayValue']  #
 #  legend = psnDict['data']['segments'][1]['metadata']['name']  #this gets legend name 
 #  psnDict['data']['segments'][1]['stats']['kills']['displayValue'] also shows # of kills for most recently played chahr 
 while True:
-    time.sleep(60)  #this waits 10 minutes 
+    time.sleep(60)  #this waits 60 seconds for testing, adjust this to adjust frequency  
     print("grabbing update")
     psnNew = requests.get('https://public-api.tracker.gg/v2/apex/standard/profile/psn/otherjosh', headers=headers) 
     psnNewDict = psnNew.json()
@@ -75,7 +75,7 @@ while True:
         api.update_status(f"{freshKills} new Apex kills")
         print(f"{freshKills} new Apex kills")
         psnDict = psnNewDict
-        break
+        break  # remove this for infinite run time 
     
 
 
