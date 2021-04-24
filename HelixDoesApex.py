@@ -72,21 +72,14 @@ while True:
         print("New total kills: " + newTotalKills)
         oldTotalKills = psnDict['data']['segments'][0]['stats']['kills']['displayValue']
         freshKills = str(int(newTotalKills) - int(oldTotalKills))
-        api.update_status(f"{freshKills} new Apex kills")
+        api.update_status(f"{freshKills} new Apex kills")  #make this have different text for different kill counts
         print(f"{freshKills} new Apex kills")
         psnDict = psnNewDict
         break  # remove this for infinite run time 
     
 
 
-
-#while True:  #this feels a lil sketch
-    #assign old data to old variable 
-    #get new data
-    #compare kills 
-    #tweet can vary in copy with different ranges of kill 
-
-
 # Since the order of characters in the json is based on play order, 
 # it may be worthwhile to iterate over it and 
 # save each character's stats to their own variable - stretch goal 
+# double stretch goal, include other games (maybe wow raider io points?)
