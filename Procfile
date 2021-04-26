@@ -1,1 +1,2 @@
-web: gunicorn helix-does-apex.py
+worker: helix-does-apex.py
+web: gunicorn
