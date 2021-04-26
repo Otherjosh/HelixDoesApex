@@ -1,2 +1,2 @@
-worker: helix-does-apex.py
+worker: python helix-does-apex.py
 web: gunicorn gettingstarted.wsgi
