@@ -1,1 +1,1 @@
-web: gunicorn helix-does-apex.wsgi:application
+web: gunicorn
