@@ -72,9 +72,18 @@ while True:
         print("New total kills: " + newTotalKills)
         oldTotalKills = psnDict['data']['segments'][0]['stats']['kills']['displayValue']
         freshKills = str(int(newTotalKills) - int(oldTotalKills))
-        api.update_status(f"{freshKills} new Apex kills")  #make this have different text for different kill counts
-        print(f"{freshKills} new Apex kills")
-        psnDict = psnNewDict
+        #except for error tweepy.error.TweepError: [{'code': 187, 'message': 'Status is a duplicate.'}]
+        try:
+            if int(freshKills) >= 3:
+                api.update_status(f"Big dam! {freshKills} new Apex kills")
+                print(f"Big dam! {freshKills} new Apex kills")
+            else:
+                api.update_status(f"{freshKills} new Apex kills")  #make this have different text for different kill counts
+                print(f"{freshKills} new Apex kills")
+            psnDict = psnNewDict
+        except tweepy.TweepError as e:
+            print(e.reason)
+            
         #break  # remove this for infinite run time 
     
 
